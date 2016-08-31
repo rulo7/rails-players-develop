@@ -1,0 +1,77 @@
+<%= form_for(coach) do |f| %>
+    <% if coach.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(coach.errors.count, "error") %> prohibited this coach from being saved:</h2>
+
+          <ul>
+            <% coach.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :surname %>
+      <%= f.text_field :surname %>
+    </div>
+
+    <div class="field">
+      <%= f.label :level %>
+      <%= f.text_field :level %>
+    </div>
+
+    <div class="field">
+      <%= f.label :birthday %>
+      <%= f.date_select :birthday %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone %>
+      <%= f.text_field :phone %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :zip %>
+      <%= f.number_field :zip %>
+    </div>
+
+    <div class="field">
+      <%= f.label :nationality %>
+      <%= f.text_field :nationality %>
+    </div>
+
+    <div class="field">
+      <%= f.label :gender %>
+      <%= f.number_field :gender %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar %>
+      <%= f.text_field :avatar %>
+    </div>
+
+    <div class="field">
+      <%= f.label :team %>
+      <%= f.collection_select :team_id, Team.all, :id, :name, {:selected => @coach.team_id} %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

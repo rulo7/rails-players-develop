@@ -1,0 +1,79 @@
+<%= bootstrap_form_for(player) do |f| %>
+    <% if player.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+          <ul>
+            <% player.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+
+
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+
+
+
+    <%= f.label :position %>
+    <%= f.number_field :position %>
+
+
+
+    <%= f.label :birthday %>
+    <%= f.date_select :birthday %>
+
+
+
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+
+
+
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+
+
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+
+
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+
+
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+
+
+    <%= f.label :zip %>
+    <%= f.number_field :zip %>
+
+
+
+    <%= f.label :nationality %>
+    <%= f.text_field :nationality %>
+
+
+
+    <%= f.label :gender %>
+    <%= f.number_field :gender %>
+
+
+
+    <%= f.label :team %>
+    <%= f.collection_select :team_id, Team.all, :id, :name, {:selected => @player.team_id} %>
+
+    <%= f.submit %>
+
+<% end %>
